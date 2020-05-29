@@ -1,5 +1,5 @@
 # ProjPlan
-<strong><b> Team 10 Members & contact info: </b></strong>
+<h3><strong><b> Team 10 Members & contact info: </b></strong></h3>
 
 Sophie Banks: email - sophie.h.banks@gmail.com, discord - boringNectarine#1834
 
@@ -9,13 +9,13 @@ Nicole Ngata: email - nicolengata1421@gmail.com, discord - Nicole#1784
 
 Nathanael Graham: email - atomictempest@tutamail.com, discord - AtomicTempest#8114
 
-<strong><b> Communication tool: </b></strong>
+<h3><strong><b> Communication tool: </b></strong></h3>
 
 <b>Discord:</b> https://discord.gg/MwWsps 
 
 <b>GitHub:</b> https://github.com/PROJ3TEAM10/
 
-<strong><b> Roles:</b></strong>
+<h2><strong><b> Roles:</b></strong></h2>
 
 <b>Sophie</b> - Project Manager (organising team meetings, reporting regularly on progress, debugging)
 
