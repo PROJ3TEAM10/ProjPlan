@@ -36,7 +36,7 @@ int main(){
       setMotors(vLeft,vRight);  
       for(int i = 0; i<cameraView.width; i++){
 		  
-		int curPix = get_pixel(cameraView, focusRow, i, i); 	//-looks at the pixel
+		int curPix = get_pixel(focusRow, i, 255); 						//-looks at the pixel
 		w=w+doWhiteCheck(curPix);									//-adds one to the count of white pixels if the current pixel is white
 		if(i>centreL&&i<centre){
 			  if(doWhiteCheck(curPix)==0){vLeft=vLeft+(10-w)*0.5;}
