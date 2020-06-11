@@ -1,57 +1,51 @@
 // TODO: REMOVE BEFORE SUBMISSION
-#include <cstdio> 
-FILE _iob[] = {*stdin, *stdout, *stderr};
-extern "C" FILE * __cdecl __iob_func(void){    return _iob;}
 
 #include "robot.hpp"
-
+#include <vector>
 //check if the current pixel is white
 int doWhiteCheck(int curPix){
-	if(curPix==250){
+	if(curPix==255){
 		return 1;
-		}
+	}
 	else{
 		return 0;
-		}
+	}
 }
 
 int main(){
 	if (initClientRobot() !=0){
 		std::cout<<" Error initializing robot"<<std::endl;
 	}
-    double vLeft = 30.0;
-    double vRight = 30.0;
-    takePicture();
-    SavePPMFile("i0.ppm",cameraView);
-    int focusRow = (cameraView.height)/2;						//-the chosen row to read the colour of the pixels from
-    int centre = (cameraView.width)/2;							//the middle pixel
-    int centreL = -10+(cameraView.width)/2;						//-centre L and r give me pixel values that between which the 
-    int centreR = 10+(cameraView.width)/2;						//pixels should be white
-    int w=0;													//-num of white pixels
-    while(1){
-      takePicture();	
-      double shift = 0;											//-distance of middle of white line from centre
-      int whitePix = 0;											//-number of white pix in the front line of the camera view
-      
-      setMotors(vLeft,vRight);  
-      for(int i = 0; i<cameraView.width; i++){
-		  
-		int curPix = get_pixel(focusRow, i, 255); 						//-looks at the pixel
-		w=w+doWhiteCheck(curPix);									//-adds one to the count of white pixels if the current pixel is white
-		if(i>centreL&&i<centre){
-			  if(doWhiteCheck(curPix)==0){vLeft=vLeft+(10-w)*0.5;}
-			  }
-		if(i<centreR&&i>centre){
-			  if(doWhiteCheck(curPix)==0){vRight=vRight+(10-w)*0.5;};
-			  }
-		  
-		  }
-		   
-      std::cout<<" vLeft="<<vLeft<<"  vRight="<<vRight<<std::endl;
-       usleep(10000);
-       shift=0;
-  } //while
+	double vLeft = 30.0;
+	double vRight = 30.0;
+	takePicture();
+	SavePPMFile("i0.ppm",cameraView);
+	int focusRow = (cameraView.height)/1.5;						//-the chosen row to read the colour of the pixels from
+	int centre = (cameraView.width)/2;							//the middle pixel
 
+	while(1){
+		takePicture();
+		double shift = 0;											//-distance of middle of white line from centre
+		setMotors(vLeft,vRight);
+		for(int i = 0; i<cameraView.width; i++){
+			int curPix = get_pixel(cameraView, focusRow, i, 3); 						//-looks at the pixel
+			if(doWhiteCheck(curPix)==1) { // if pixel is white, it is part of centre line
+				shift = centre - i-4; // the centre of view - position of white pixel = distance from centre
+				if (shift == 0) { // if distance from centre is 0
+					vLeft = 30; // set motors to go straight
+					vRight = 30;
+				} else if (shift < 0) { //if robot is left of line
+					vLeft = 35; // set motors to go right
+					vRight = 25;
+				} else if (shift > 0) { //if robot is right of line
+					vRight = 35; // set motors to go left
+					vLeft = 25;
+				}
+			}
+		}
+		std::cout<<" vLeft="<<vLeft<<"  vRight="<<vRight<<std::endl;
+		usleep(10000);
+	} //while
 } // main
 
 
