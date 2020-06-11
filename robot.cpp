@@ -46,7 +46,6 @@ int main(){
 		std::cout<<" vLeft="<<vLeft<<"  vRight="<<vRight<<std::endl;
 		usleep(10000);
 	} //while
-
 } // main
 
 
