@@ -1,4 +1,39 @@
-# ProjPlan
+# Project 3
+
+<h3><strong><b> Installation </b></strong></h3>
+
+  Linux Install Instructions
+
+    1. Download AVC_Final_Linux.zip from the Releases Folder of the github
+	- https://github.com/PROJ3TEAM10/Project-3-avc-team10/tree/master/Release
+    2. Unzip the archive into your home user folder
+       - you can unzip the archive into a different location however there will be an extra step later
+    3. If it is not installed/pre installed on your system, install GCC (GNU Compiler Collection)
+       - This can probably be found in your package manager
+       - Open a console
+       - For Manjaro/Arch Linux: run the command “sudo pacman -Sy gcc”
+       - For Ubuntu/Debian/Mint: run the command “sudo apt update” then “sudo apt install gcc”
+       - You can check if installed using the command “gcc --version”
+    4. If it is not installed/pre installed on your system, install Make
+       - This can probably also be found in your package manager
+       - Open a console
+       - For Manjaro/Arch Linux: run the command “sudo pacman -Sy make”
+       - For Ubuntu/Debian/Mint run the command  “sudo apt update” then “sudo apt install make”
+    5. A note for Ubuntu/Debian/Mint users
+        - You Should be able to use “sudo apt install build-essential” to install both GCC and Make
+    6. In the AVC_Robot folder and AVC_Sever folder edit the file in a text editor named “makefile”.
+       - If you extracted the zip into your user folder then skip this step.
+       - find “SFML = ${HOME}/AVC/SFML-2.5.1” then change ${HOME} to the directory you extracted the zip to.
+       
+    7. Build the AVC Server
+       - Run a terminal with the active directory being the AVC_Server folder and run the command “make server3”
+    8. Build the AVC Robot
+       - Run a terminal with the active directory being the AVC_Robot folder and run the command “make robot”
+    9. Run the Server
+       In the AVC_Server folder run ‘server3’
+    10.  Run the Robot
+	In a terminal with the active directory being the AVC_Robot folder run the command “./robot”
+
 <h3><strong><b> Team 10 Members & contact info: </b></strong></h3>
 
 Sophie Banks: email - sophie.h.banks@gmail.com, discord - boringNectarine#1834
