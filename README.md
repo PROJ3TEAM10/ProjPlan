@@ -21,7 +21,7 @@
        - For Ubuntu/Debian/Mint run the command  “sudo apt update” then “sudo apt install make”
     5. A note for Ubuntu/Debian/Mint users
         - You Should be able to use “sudo apt install build-essential” to install both GCC and Make
-    6. In the AVC_Robot folder and AVC_Sever folder edit the file in a text editor named “makefile”.
+    6. In both the AVC_Robot folder and AVC_Sever folder edit the file in a text editor named “makefile”.
        - If you extracted the zip into your user folder then skip this step.
        - find “SFML = ${HOME}/AVC/SFML-2.5.1” then change ${HOME} to the directory you extracted the zip to.
        
